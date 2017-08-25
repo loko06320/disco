@@ -1,4 +1,4 @@
-# fxserver-esx_discojob
+# esx_discojob
 
 FXServer ESX Disco Job
 
@@ -16,7 +16,7 @@ FXServer ESX Disco Job
 1) CD in your resources/[esx] folder
 2) Clone the repository
 ```
-git clone https://github.com/FXServer-ESX/fxserver-esx_mecanojob esx_discojob
+git clone https://github.com/loko06320/esx_discojob
 ```
 3) * Auto mode : Import esx_discojob_minimal.sql in your database
    * Player management : Import esx_discojob_full.sql in your database
