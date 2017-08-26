@@ -74,7 +74,7 @@ local function Harvest2(source)
 			if FixToolQuantity >= 5 then
 				TriggerClientEvent('esx:showNotification', source, 'Vous n\'avez ~r~plus de place')				
 			else
-                xPlayer.addInventoryItem('pommedeterre', 10)
+                xPlayer.addInventoryItem('pommedeterre', 8)
 					
 				Harvest2(source)
 			end
@@ -107,7 +107,7 @@ local function Harvest3(source)
             if CaroToolQuantity >= 5 then
 				TriggerClientEvent('esx:showNotification', source, 'Vous n\'avez ~r~plus de place')					
 			else
-                xPlayer.addInventoryItem('raisin', 1)
+                xPlayer.addInventoryItem('raisin', 6)
 					
 				Harvest3(source)
 			end
@@ -138,7 +138,7 @@ local function Craft(source)
 			local xPlayer  = ESX.GetPlayerFromId(source)
 			local GazBottleQuantity = xPlayer.getInventoryItem('menthe').count
 
-			if MentheQuantity <= 0 then
+			if GazBottleQuantity <= 0 then
 				TriggerClientEvent('esx:showNotification', source, 'Vous n\'avez ~r~pas assez~s~ de Menthe')		
 			else   
                 xPlayer.removeInventoryItem('menthe', 2)
@@ -210,7 +210,7 @@ local function Craft3(source)
 				TriggerClientEvent('esx:showNotification', source, 'Vous n\'avez ~r~pas assez~s~ de Raisin')					
 			else
                 xPlayer.removeInventoryItem('raisin', 2)
-                xPlayer.addInventoryItem('Champagne', 1)
+                xPlayer.addInventoryItem('champagne', 1)
 					
 				Craft3(source)
 			end

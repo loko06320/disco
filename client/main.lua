@@ -17,7 +17,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-function OpenMecanoActionsMenu()
+function OpenDiscoActionsMenu()
 
 	local elements = {
 		{label = 'Sortir Véhicule', value = 'vehicle_list'},
@@ -41,13 +41,13 @@ function OpenMecanoActionsMenu()
 		function(data, menu)
 			if data.current.value == 'vehicle_list' then
 				local elements = {
-					{label = 'Plateau', value = 'flatbed'},
-					{label = 'Dépaneuse', value = 'towtruck2'}					
+					{label = 'Limousine', value = 'stretch'},
+					{label = 'Dépaneuse', value = 'benson'}					
 				}
 
 				if Config.EnablePlayerManagement and PlayerData.job ~= nil and 
 					(PlayerData.job.grade_name == 'boss' or PlayerData.job.grade_name == 'gerant' or PlayerData.job.grade_name == 'dj') then
-					table.insert(elements, {label = 'SlamVan', value = 'slamvan3'})
+					table.insert(elements, {label = 'Dubsta6x6', value = 'dubsta3'})
 				end
 
 				ESX.UI.Menu.CloseAll()
@@ -189,9 +189,9 @@ function OpenDiscoHarvestMenu()
 
 	if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.grade_name ~= 'barman' then
 		local elements = {
-			{label = 'Bouteille de gaz', value = 'gaz_bottle'},
-			{label = 'Outils réparation', value = 'fix_tool'},
-			{label = 'Outils Carosserie', value = 'caro_tool'}
+			{label = 'Menthe', value = 'menthe'},
+			{label = 'Pomme de terre', value = 'pommedeterre'},
+			{label = 'Raisin', value = 'raisin'}
 		}
 
 		ESX.UI.Menu.CloseAll()
@@ -203,17 +203,17 @@ function OpenDiscoHarvestMenu()
 				elements = elements
 			},
 			function(data, menu)
-				if data.current.value == 'gaz_bottle' then
+				if data.current.value == 'menthe' then
 					menu.close()
 					TriggerServerEvent('esx_discojob:startHarvest')
 				end
 
-				if data.current.value == 'fix_tool' then
+				if data.current.value == 'pommedeterre' then
 					menu.close()
 					TriggerServerEvent('esx_discojob:startHarvest2')
 				end
 
-				if data.current.value == 'caro_tool' then
+				if data.current.value == 'raisin' then
 					menu.close()
 					TriggerServerEvent('esx_discojob:startHarvest3')
 				end
@@ -231,13 +231,13 @@ function OpenDiscoHarvestMenu()
 	end
 end
 
-function OpenMecanoCraftMenu()
+function OpenDiscoCraftMenu()
 	if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.grade_name ~= 'barman' then
 
 		local elements = {
-			{label = 'Chalumeaux', value = 'blow_pipe'},
-			{label = 'Kit réparation', value = 'fix_kit'},
-			{label = 'Outils Carosserie', value = 'caro_kit'}
+			{label = 'Mojito', value = 'mojito'},
+			{label = 'Vodka', value = 'vodka'},
+			{label = 'champagne', value = 'champagne'}
 		}
 
 		ESX.UI.Menu.CloseAll()
@@ -245,21 +245,21 @@ function OpenMecanoCraftMenu()
 		ESX.UI.Menu.Open(
 			'default', GetCurrentResourceName(), 'disco_craft',
 			{
-				title    = 'Etabli',
+				title    = 'Shaker',
 				elements = elements
 			},
 			function(data, menu)
-				if data.current.value == 'blow_pipe' then
+				if data.current.value == 'mojito' then
 					menu.close()
 					TriggerServerEvent('esx_discojob:startCraft')
 				end
 
-				if data.current.value == 'fix_kit' then
+				if data.current.value == 'vodka' then
 					menu.close()
 					TriggerServerEvent('esx_discojob:startCraft2')
 				end
 
-				if data.current.value == 'caro_kit' then
+				if data.current.value == 'champagne' then
 					menu.close()
 					TriggerServerEvent('esx_discojob:startCraft3')
 				end
@@ -655,7 +655,7 @@ AddEventHandler('esx:setJob', function(job)
 end)
 
 AddEventHandler('esx_discojob:hasEnteredMarker', function(zone)
-	if zone == 'MecanoActions' then
+	if zone == 'DiscoActions' then
 		CurrentAction     = 'disco_actions_menu'
 		CurrentActionMsg  = 'Appuyez sur ~INPUT_CONTEXT~ pour accéder au menu.'
 		CurrentActionData = {}
@@ -737,7 +737,7 @@ Citizen.CreateThread(function()
 	SetBlipColour (blip, 42)
 	SetBlipAsShortRange(blip, true)
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString("Disco")
+	AddTextComponentString("Vanilla Unicorn")
 	EndTextCommandSetBlipName(blip)
 end)
 
@@ -840,13 +840,13 @@ Citizen.CreateThread(function()
                     local playerPed = GetPlayerPed(-1)
                     local vehicle   = GetVehiclePedIsIn(playerPed,  false)
                     local hash      = GetEntityModel(vehicle)
-                    if hash == GetHashKey('flatbed') or hash == GetHashKey('towtruck2') or hash == GetHashKey('slamvan3') then
+                    if hash == GetHashKey('stretch') or hash == GetHashKey('benson') or hash == GetHashKey('dubsta3') then
                         if Config.MaxInService ~= -1 then
                             TriggerServerEvent('esx_service:disableService', 'disco')
                         end                        
                         DeleteVehicle(vehicle)
                     else
-                        ESX.ShowNotification('Vous ne pouvez ranger que des ~b~véhicules de Disco~s~.')
+                        ESX.ShowNotification('Vous ne pouvez ranger que des ~b~véhicules de Vanilla Unicorn~s~.')
                     end
                 end
                 if CurrentAction == 'remove_entity' then
