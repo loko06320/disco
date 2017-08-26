@@ -53,7 +53,7 @@ RegisterServerEvent('esx_discojob:startHarvest')
 AddEventHandler('esx_discojob:startHarvest', function()
 	local _source = source
 	PlayersHarvesting[_source] = true
-	TriggerClientEvent('esx:showNotification', _source, 'Récupération de ~b~Menthe~s~...')
+	TriggerClientEvent('esx:showNotification', _source, 'Récolte de ~b~Menthe~s~...')
 	Harvest(source)
 end)
 
@@ -86,7 +86,7 @@ RegisterServerEvent('esx_discojob:startHarvest2')
 AddEventHandler('esx_discojob:startHarvest2', function()
 	local _source = source
 	PlayersHarvesting2[_source] = true
-	TriggerClientEvent('esx:showNotification', _source, 'Récupération de ~b~Pomme de terre~s~...')
+	TriggerClientEvent('esx:showNotification', _source, 'Récolte de ~b~Pomme de terre~s~...')
 	Harvest2(_source)
 end)
 
@@ -119,7 +119,7 @@ RegisterServerEvent('esx_discojob:startHarvest3')
 AddEventHandler('esx_discojob:startHarvest3', function()
 	local _source = source
 	PlayersHarvesting3[_source] = true
-	TriggerClientEvent('esx:showNotification', _source, 'Récupération de ~b~Raisin~s~...')
+	TriggerClientEvent('esx:showNotification', _source, 'Récolte de ~b~Raisin~s~...')
 	Harvest3(_source)
 end)
 
