@@ -4,10 +4,12 @@ description 'ESX Disco Job'
 
 client_scripts {
 	'config.lua',
-	'client/main.lua'
+	'client/main.lua',
+	'locales/fr.lua'
 }
 
 server_scripts {
 	'config.lua',
-	'server/main.lua'
+	'server/main.lua',
+	'locales/fr.lua'
 }
