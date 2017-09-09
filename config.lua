@@ -6,7 +6,7 @@ Config.EnablePlayerManagement = true
 Config.Zones = {
 
 	DiscoActions = {
-		Pos   = {x = 93.7351, y = -1292.08, z = 27.8000},
+		Pos   = {x = 97.893203735352, y = -1290.2419433594, z = 28.268741607666},
 		Size  = {x = 2, y = 2, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1

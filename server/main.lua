@@ -231,3 +231,57 @@ AddEventHandler('esx_discojob:stopCraft3', function()
 	local _source = source
 	PlayersCrafting3[_source] = false
 end)
+
+-- Register Usable Item mojito
+ESX.RegisterUsableItem('mojito', function(source)
+
+	local _source = source
+	local xPlayer  = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('mojito', 1)
+
+TriggerClientEvent('esx_disco:drinkmojito', _source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('mojito', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 400000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+
+end)
+
+-- Register Usable Item vodka
+ESX.RegisterUsableItem('vodka', function(source)
+
+	local _source = source
+	local xPlayer  = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('vodka', 1)
+
+TriggerClientEvent('esx_disco:drinkvodka', _source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('vodka', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 600000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+
+end)
+
+-- Register Usable Item champagne
+ESX.RegisterUsableItem('champagne', function(source)
+
+	local _source = source
+	local xPlayer  = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('champagne', 1)
+
+TriggerClientEvent('esx_disco:drinkchampagne', _source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('champagne', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 800000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+
+end)
