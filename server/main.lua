@@ -12,22 +12,7 @@ if Config.MaxInService ~= -1 then
 	TriggerEvent('esx_service:activateService', 'disco', Config.MaxInService)
 end
 
-TriggerEvent('esx_phone:registerCallback', function(source, phoneNumber, message, anon)
-	local _source = source
-	local xPlayer  = ESX.GetPlayerFromId(_source)
-	local xPlayers = ESX.GetPlayers()
-	
-	if phoneNumber == 'disco' then
-		for i=1, #xPlayers, 1 do
-			
-			local xPlayer2 = ESX.GetPlayerFromId(xPlayers[i])
-
-			if xPlayer2.job.name == 'disco' then
-				TriggerClientEvent('esx_phone:onMessage', xPlayer2.source, xPlayer.get('phoneNumber'), message, xPlayer.get('coords'), anon, 'Appel Disco')
-			end
-		end
-	end
-end)
+TriggerEvent('esx_phone:registerNumber', 'disco', 'Client disco', true, true)
 -------------- Récupération menthe -------------
 local function Harvest(source)
 

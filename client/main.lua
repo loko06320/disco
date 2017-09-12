@@ -287,11 +287,11 @@ function OpenMobileDiscoActionsMenu()
 			title    = 'Disco',
 			elements = {
 				{label = 'Facuration', value = 'billing'},
-				{label = 'Crocheter', value = 'hijack_vehicle'},
-				{label = 'Réparer', value = 'fix_vehicle'},
+				--{label = 'Crocheter', value = 'hijack_vehicle'},
+				--{label = 'Réparer', value = 'fix_vehicle'},
 				{label = 'Nettoyer', value = 'clean_vehicle'},
-				{label = 'Fourrière', value = 'del_vehicle'},
-				{label = 'Plateau', value = 'dep_vehicle'},
+				--{label = 'Fourrière', value = 'del_vehicle'},
+				--{label = 'Plateau', value = 'dep_vehicle'},
 				{label = 'Placer objets', value = 'object_spawner'}
 			}
 		},
@@ -721,7 +721,7 @@ end)
 RegisterNetEvent('esx_phone:loaded')
 AddEventHandler('esx_phone:loaded', function(phoneNumber, contacts)
 	local specialContact = {
-		name       = 'Disco',
+		name       = 'Vanilla Club',
 		number     = 'disco',
 		base64Icon = 'data:image/png;base64,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'
 	}
